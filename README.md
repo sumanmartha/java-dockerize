@@ -1,1 +1,1 @@
-# java-docker
+# spring-boot-maven-docker
