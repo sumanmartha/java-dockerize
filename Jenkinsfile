@@ -14,25 +14,23 @@ import groovy.json.JsonOutput
 import java.net.URL
  
 try {
-node {
-stage '\u2776 Stage 1'
-echo "\u2600 BUILD_URL=${env.BUILD_URL}"
- 
-def workspace = pwd()
-echo "\u2600 workspace=${workspace}"
- 
-stage '\u2777 Stage 2'
-} // node
+  node {
+    stage '\u2776 Stage 1'
+    echo "\u2600 BUILD_URL=${env.BUILD_URL}"
+    
+    def workspace = pwd()
+    echo "\u2600 workspace=${workspace}"
+    
+    stage '\u2777 Stage 2'
+  } // node
 } // try end
 catch (exc) {
 
 } finally {
-  
+
+}
  
- }
- 
- // Must re-throw exception to propagate error:
- if (err) {
-     throw err
- }
+// Must re-throw exception to propagate error:
+if (err) {
+    throw err
 }
