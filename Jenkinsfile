@@ -36,10 +36,11 @@ node {
     }
 
     stage('Maven build') {
-        buildInfo = rtMaven.run pom: 'pom.xml', goals: '-X clean install'
+        // buildInfo = rtMaven.run pom: 'pom.xml', goals: '-X clean install'
+        "sh -c mvn clean install -f pom.xml".execute()
     }
 
     stage('Publish build info') {
-        server.publishBuildInfo buildInfo
+        // server.publishBuildInfo buildInfo
     }
 }
