@@ -15,6 +15,13 @@ import java.net.URL
 import jenkins.model.*
  
 node {
+
+    // Get Artifactory server instance, defined in the Artifactory Plugin administration page.
+    def server = Artifactory.server "Artifactory4.5"
+    // Create an Artifactory Maven instance.
+    def rtMaven = Artifactory.newMavenBuild()
+    def buildInfo
+
     stage('Clone sources') {
         git url: 'https://github.com/sumanmartha/spring-maven-dockerize.git'
     }
