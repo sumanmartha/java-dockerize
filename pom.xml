@@ -31,7 +31,7 @@
             <artifactId>spring-boot-dependencies</artifactId>
             <version>${spring-boot.version}</version>
             <type>pom</type>
-            <scope>compile</scope>
+            <scope>import</scope>
         </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -44,7 +44,7 @@
 			<artifactId>maven-clean-plugin</artifactId>
 			<version>3.1.0</version>
 			<type>jar</type>
-            <scope>compile</scope>
+            <scope>import</scope>
 		</dependency>
 
 		<!-- tag::actuator[] -->
@@ -73,11 +73,6 @@
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-clean-plugin</artifactId>
-				<version>3.1.0</version>
-			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
