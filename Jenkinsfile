@@ -35,10 +35,16 @@ node {
     }
 
     stage('Maven build') {
-        buildInfo = rtMaven.run pom: 'spring-maven-dockerize/pom.xml', goals: 'clean install'
+        // buildInfo = rtMaven.run pom: 'pom.xml', goals: 'clean install'
+        steps{
+            sh '''
+            mvn clean install
+            '''
+        }
+
     }
 
     stage('Publish build info') {
-        server.publishBuildInfo buildInfo
+        // server.publishBuildInfo buildInfo
     }
 }
