@@ -14,24 +14,11 @@ import groovy.json.JsonOutput
 import java.net.URL
 import jenkins.model.*
  
-try {
-  node {
-    stage '\u2776 Stage 1'
-    echo "\u2600 BUILD_URL=${env.BUILD_URL}"
-    
-    def workspace = pwd()
-    echo "\u2600 workspace=${workspace}"
-    
-    stage '\u2777 Stage 2'
-  } // node
-} // try end
-catch (exc) {
-
-} finally {
-
-}
- 
-// Must re-throw exception to propagate error:
-if (err) {
-    throw err
+node {
+    stage('Clone sources') {
+        git url: 'https://github.com/sumanmartha/spring-maven-dockerize.git'
+    }
+    stage('Maven build') {
+        buildInfo = rtMaven.run pom: 'spring-maven-dockerize/pom.xml', goals: 'clean install'
+    }
 }
